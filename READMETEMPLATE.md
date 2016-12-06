@@ -10,23 +10,27 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [IRC][ircurl] on freenode at `#linuxserver.io`
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
-# <image-name>
+# lsioarmhf/ubooquity
+[![](https://images.microbadger.com/badges/version/lsioarmhf/ubooquity.svg)](https://microbadger.com/images/lsioarmhf/ubooquity "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/lsioarmhf/ubooquity.svg)](http://microbadger.com/images/lsioarmhf/ubooquity "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/lsioarmhf/ubooquity.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/lsioarmhf/ubooquity.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io-armhf/lsioarmhf-ubooquity)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io-armhf/job/lsioarmhf-ubooquity/)
+[hub]: https://hub.docker.com/r/lsioarmhf/ubooquity/
 
-Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.
+[Ubooquity][ubooquityurl] is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.
 
-Our Plex container has immaculate docs so follow that if in doubt for layout.
-
-`IMPORTANT, replace all instances of <image-name> with the correct dockerhub repo (ie linuxserver/plex) and <container-name> information (ie, plex)`
+[![ubooquity](https://vaemendis.net/ubooquity/data/images/diagram2.png)][ubooquityurl]
+[ubooquityurl]: https://vaemendis.net/ubooquity/
 
 ## Usage
 
 ```
 docker create \
-  --name=<container-name> \
+  --name=ubooquity \
   -v <path to data>:/config \
+  -v <path to books>:/books \
+  -v <path to comics>:/comics \
+  -v <path to raw files>:/files \
   -e PGID=<gid> -e PUID=<uid>  \
-  -p 1234:1234 \
-  <image-name>
+  -p 2202:2202 \
+  lsioarmhf/ubooquity
 ```
 
 ## Parameters
@@ -38,12 +42,15 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 
 
-* `-p 1234` - the port(s)
-* `-v /config` - explain what lives here
+* `-p 2202` - the port(s)
+* `-v /config` - Config files and database for ubooquity
+* `-v /books` - Location of books.
+* `-v /comics` - Location of comics.
+* `-v /files` - Location of raw files.
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it <container-name> /bin/bash`.
+It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it ubooquity /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -57,23 +64,24 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ```
 
 ## Setting up the application
+`IMPORTANT... THIS IS THE ARMHF VERSION`
 
 Insert a basic user guide here to get a n00b up and running with the software inside the container. DELETE ME
 
 
 ## Info
 
-* Shell access whilst the container is running: `docker exec -it <container-name> /bin/bash`
-* To monitor the logs of the container in realtime: `docker logs -f <container-name>`
+* Shell access whilst the container is running: `docker exec -it ubooquity /bin/bash`
+* To monitor the logs of the container in realtime: `docker logs -f ubooquity`
 
 * container version number 
 
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' <container-name>`
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' ubooquity`
 
 * image version number
 
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' <image-name>`
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' lsioarmhf/ubooquity`
 
 ## Versions
 
-+ **dd.MM.yy:** This is the standard Version type now.
++ **dd.MM.yy:** Initial Release.
