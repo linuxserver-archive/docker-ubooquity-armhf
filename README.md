@@ -48,7 +48,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /books` - Location of books.
 * `-v /comics` - Location of comics.
 * `-v /files` - Location of raw files.
-* `-e MAXMEM` - to set the maximum memory
+* `-e MAXMEM` - to set the maximum memory - see below for explanation
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
