@@ -79,9 +79,9 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 This container will automatically scan your files at startup.
 
 **IMPORTANT**
-Access the admin page at `http://<your-ip>:2022/ubooquity/admin/` and set a password. 
+Access the admin page at `http://<your-ip>:2202/ubooquity/admin/` and set a password. 
 
-Then you can access the webui at `http://<your-ip>:2022/ubooquity/`
+Then you can access the webui at `http://<your-ip>:2202/ubooquity/`
 
 
 ## Info
@@ -99,4 +99,5 @@ Then you can access the webui at `http://<your-ip>:2022/ubooquity/`
 
 ## Versions
 
++ **04.02.17:** Rebase to alpine 3.5.
 + **06.12.16:** Initial Release.
