@@ -102,6 +102,7 @@ This container will automatically scan your files at startup.
 
 ## Versions
 
++ **07.10.17:** Upgrade to Ubooquity 2.1.1
 + **16.07.17:** Upgrade to Ubooquity 2.1.0, see setting up application section for important info for existing v1.x users.
 + **08.04.17:** Switch to java from 3.5 repo, fixes login crashes.
 + **04.02.17:** Rebase to alpine 3.5.
