@@ -102,6 +102,7 @@ This container will automatically scan your files at startup.
 
 ## Versions
 
++ **25.10.18:** Upgrade to Ubooquity 2.1.2
 + **23.08.18:** Rebase to alpine 3.8.
 + **20.12.17:** Rebase to alpine 3.7.
 + **07.10.17:** Upgrade to Ubooquity 2.1.1
